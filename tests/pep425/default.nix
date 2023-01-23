@@ -18,6 +18,18 @@ lib.debug.runTests {
       expected = [{ file = "grpcio-1.25.0-cp27-cp27m-manylinux2010_x86_64.whl"; }];
     };
 
+  testLinuxOldPlatform =
+    let
+      cs = [
+        { file = "esr.autosar-1.5.2-py3-none-linux_x86_64.whl"; }
+        { file = "esr.autosar-1.5.2-py3-none-win_amd64.whl"; }
+      ];
+    in
+    {
+      expr = (pep425.selectWheel cs);
+      expected = [{ file = "esr.autosar-1.5.2-py3-none-linux_x86_64.whl"; }];
+    };
+
   testOSXSimple =
     let
       cs = [
